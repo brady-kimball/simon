@@ -12,13 +12,14 @@ class Simon
   def play
     until game_over
       take_turn
+      system("clear")
     end
+
     game_over_message
     reset_game
   end
 
   def take_turn
-    system("clear")
     show_sequence
     require_sequence
     round_success_message unless game_over
@@ -58,9 +59,4 @@ class Simon
     @seq = []
     @game_over = false
   end
-end
-
-if $PROGRAM_NAME == __FILE__
-  a = Simon.new
-  a.play
 end
